@@ -10,9 +10,33 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     address: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    website_url: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    cover_img_url: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    latitude: {
+        type: DataTypes.DOUBLE,
+        allowNull: false
+    },
+    longitude: {
+        type: DataTypes.DOUBLE,
+        allowNull: false
+    },
+    main_category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true
     }
   }, {
     hooks: {

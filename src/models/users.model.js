@@ -16,6 +16,11 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    is_admin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    }
   
   
   }, {
@@ -23,7 +28,10 @@ module.exports = function (app) {
       beforeCount(options) {
         options.raw = true;
       }
-    }
+    },
+    createdAt: "created_on",
+    updatedAt: "updated_on"
+
   });
 
   // eslint-disable-next-line no-unused-vars

@@ -6,8 +6,16 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const ratings = sequelizeClient.define('ratings', {
-    text: {
-      type: DataTypes.STRING,
+    liked: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+      locaiton_id: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
@@ -15,7 +23,10 @@ module.exports = function (app) {
       beforeCount(options) {
         options.raw = true;
       }
-    }
+    },
+    createdAt: "created_on",
+    updatedAt: "updated_on"
+
   });
 
   // eslint-disable-next-line no-unused-vars

@@ -7,6 +7,11 @@ exports.SearchController = class SearchController {
     this.sequelize = app.get('sequelizeClient');
   }
 
+    /*
+    *   params(Object) 
+        *       - search_term (TEXT)
+        *       - categories (ARRAY)
+    * */
   async find (params) {
     let response = undefined;
 
@@ -16,12 +21,16 @@ exports.SearchController = class SearchController {
      response = await this.sequelize.query( `
         SELECT * from locations
         WHERE name LIKE :search_term
+        AND main_category_id IN ( :categories )
       `, { 
           replacements: {
-              search_term: '%' + params.query.search_term.toLowerCase() + '%'
+              search_term: '%' + params.query.search_term.toLowerCase() + '%',
+              categories: params.query.categories
           },
           type: QueryTypes.SELECT 
       } );
+
+        console.log( response );
 
         return {
             total:  response.length,

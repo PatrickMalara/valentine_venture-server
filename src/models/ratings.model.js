@@ -14,7 +14,7 @@ module.exports = function (app) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-      locaiton_id: {
+      location_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     }

@@ -6,7 +6,9 @@ const hooks = require('./locations.hooks');
 module.exports = function (app) {
   const options = {
     Model: createModel(app),
-    paginate: app.get('paginate')
+    paginate: {
+        max: 1000
+    }  //@TODO: create an enpoint just for Chart Data Generation
   };
 
   // Initialize our service with any options it requires

@@ -6,7 +6,7 @@ const append_location_name = async function( context ) {
     // @TODO make this faster, not sure exactly how? but maybe Promise.all in chunks of 5? We'll see
     let i = 0;
     for( i = 0; i < context.result.total; i += 1 ) {
-       context.result.data[i]["location_name"] = (await context.app.service('locations').get( context.result.data[i].id )).name;
+       context.result.data[i]["location_name"] = (await context.app.service('locations').get( context.result.data[i].location_id )).name;
     }
 
     return context;

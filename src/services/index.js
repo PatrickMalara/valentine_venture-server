@@ -8,6 +8,7 @@ const comments = require('./comments/comments.service.js');
 const flags = require('./flags/flags.service.js');
 const suggestions = require('./suggestions/suggestions.service.js');
 const searchController = require('./search_controller/search_controller.service.js');
+const stats = require('./stats/stats.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -20,4 +21,5 @@ module.exports = function (app) {
   app.configure(flags);
   app.configure(suggestions);
   app.configure(searchController);
+  app.configure(stats);
 };
